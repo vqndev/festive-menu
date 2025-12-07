@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-size: 1.25rem;
+  touch-action: manipulation;
+}
