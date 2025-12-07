@@ -229,12 +229,15 @@ const resetOrder = () => {
   desserts.value.forEach(d => d.quantity = 0)
 }
 
+// Base URL for assets
+const base = import.meta.env.BASE_URL
+
 // Gallery
 const galleryImages = [
-  '/gallery-1.jpg',
-  '/gallery-2.jpg',
-  '/gallery-3.jpg',
-  '/gallery-4.png',
+  `${base}gallery-1.jpg`,
+  `${base}gallery-2.jpg`,
+  `${base}gallery-3.jpg`,
+  `${base}gallery-4.png`,
 ]
 const lightboxOpen = ref(false)
 const lightboxImage = ref('')
@@ -256,7 +259,7 @@ const currentTheme = ref<'christmas' | 'cora'>('christmas')
   <div
     class="min-h-screen py-8 px-4 overflow-hidden relative transition-all duration-500"
     :style="currentTheme === 'cora'
-      ? 'background: url(/background.jpg) center/cover no-repeat fixed;'
+      ? `background: url(${base}background.jpg) center/cover no-repeat fixed;`
       : 'background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.4)), repeating-linear-gradient(45deg, #7f1d1d, #7f1d1d 50px, #14532d 50px, #14532d 100px);'"
   >
     <!-- Theme Selector -->
@@ -292,7 +295,7 @@ const currentTheme = ref<'christmas' | 'cora'>('christmas')
 
     <!-- Falling Bows -->
     <div v-if="currentTheme === 'christmas'" class="fixed inset-0 pointer-events-none overflow-hidden">
-      <img v-for="i in 30" :key="'bow-' + i" src="/bow.png" alt="" class="bow absolute" :style="{
+      <img v-for="i in 30" :key="'bow-' + i" :src="`${base}bow.png`" alt="" class="bow absolute" :style="{
         left: `${Math.random() * 100}%`,
         animationDelay: `${Math.random() * 8}s`,
         opacity: 0.7 + Math.random() * 0.3,
@@ -302,12 +305,12 @@ const currentTheme = ref<'christmas' | 'cora'>('christmas')
 
     <!-- Candy Cane Top Left -->
     <div v-if="currentTheme === 'christmas'" class="fixed top-4 left-0 pointer-events-none z-10">
-      <img src="/candy-cane.png" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
+      <img :src="`${base}candy-cane.png`" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
     </div>
 
     <!-- Candy Cane Top Right -->
     <div v-if="currentTheme === 'christmas'" class="fixed top-4 right-0 pointer-events-none z-10">
-      <img src="/candy-cane.png" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
+      <img :src="`${base}candy-cane.png`" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
     </div>
 
     <!-- Hot Chocolate Mug - Bottom Right -->
@@ -341,12 +344,12 @@ const currentTheme = ref<'christmas' | 'cora'>('christmas')
 
     <!-- Candy Cane Bottom Left -->
     <div v-if="currentTheme === 'christmas'" class="fixed bottom-4 left-0 pointer-events-none z-10">
-      <img src="/candy-cane.png" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
+      <img :src="`${base}candy-cane.png`" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
     </div>
 
     <!-- Candy Cane Bottom Right -->
     <div v-if="currentTheme === 'christmas'" class="fixed bottom-4 right-24 pointer-events-none z-10">
-      <img src="/candy-cane.png" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
+      <img :src="`${base}candy-cane.png`" alt="Candy Cane" class="w-16 h-auto drop-shadow-lg" style="transform: rotate(-30deg);" />
     </div>
 
     <div class="max-w-4xl mx-auto">
