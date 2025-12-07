@@ -93,8 +93,6 @@ const selectedBase = () => drinkBases.value.find(b => b.selected)?.name
 const selectedToppings = () => toppings.value.filter(t => t.selected).map(t => t.hasQuantity ? `${t.name} x${t.quantity}` : t.name)
 const selectedDesserts = () => desserts.value.filter(d => d.quantity > 0).map(d => `${d.name} x${d.quantity}`)
 
-const hasSelection = () => selectedBase() || selectedToppings().length > 0 || selectedDesserts().length > 0
-
 const submitOrder = () => {
   if (!selectedBase()) {
     alert('Please select a drink base first!')
